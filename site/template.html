@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="{{lang}}" dir="{{dir}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<link rel="canonical" href="https://giloushaker.github.io/right-click-mp3/{{path}}">
+{{alternates}}
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ogTitle}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:url" content="https://giloushaker.github.io/right-click-mp3/{{path}}">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>🎵</text></svg>">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Right Click MP3",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Windows 10, Windows 11",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "license": "https://opensource.org/licenses/MIT",
+  "downloadUrl": "https://github.com/giloushaker/right-click-mp3/releases/latest",
+  "inLanguage": "{{lang}}",
+  "description": "{{description}}"
+}
+</script>
+<style>
+  :root {
+    --bg:#fbfbfa; --panel:#fff; --ink:#16161a; --muted:#5d5d68;
+    --line:#e3e3df; --accent:#1f6f4a; --accent-ink:#fff; --code:#f3f3f0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:#131316; --panel:#1a1a1f; --ink:#ececef; --muted:#a0a0ac;
+      --line:#2c2c33; --accent:#4fb286; --accent-ink:#0d1a14; --code:#202027;
+    }
+  }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; background:var(--bg); color:var(--ink);
+    font:17px/1.65 -apple-system,"Segoe UI",system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap { max-width:46rem; margin:0 auto; padding:0 1.25rem; }
+  header { padding:3.5rem 0 2.5rem; }
+  h1 { font-size:clamp(2rem,6vw,2.9rem); line-height:1.15; letter-spacing:-.02em; margin:0 0 .6rem; }
+  .lede { font-size:1.2rem; color:var(--muted); margin:0 0 2rem; max-width:34rem; }
+  h2 { font-size:1.35rem; letter-spacing:-.01em; margin:3rem 0 .8rem; }
+  a { color:var(--accent); }
+  .btn {
+    display:inline-block; background:var(--accent); color:var(--accent-ink);
+    text-decoration:none; font-weight:600; padding:.85rem 1.5rem; border-radius:.5rem;
+  }
+  .btn:hover { filter:brightness(1.08); }
+  .sub { display:block; font-size:.9rem; color:var(--muted); margin-top:.7rem; }
+  .menu {
+    background:var(--panel); border:1px solid var(--line); border-radius:.6rem;
+    padding:.45rem; max-width:22rem; font-size:.95rem;
+    box-shadow:0 8px 24px rgba(0,0,0,.07); margin:1.75rem 0 0;
+  }
+  .menu div { padding:.4rem .7rem; border-radius:.35rem; color:var(--muted); }
+  .menu .on { background:var(--accent); color:var(--accent-ink); font-weight:600; }
+  .menu .sub-item { padding-inline-start:1.9rem; }
+  ol, ul { padding-inline-start:1.3rem; }
+  li { margin:.5rem 0; }
+  code { background:var(--code); padding:.15em .4em; border-radius:.3em; font-size:.9em; }
+  pre { background:var(--code); padding:1rem; border-radius:.5rem; overflow-x:auto; direction:ltr; text-align:left; }
+  pre code { background:none; padding:0; }
+  .note { color:var(--muted); font-size:.95rem; }
+  .faq h3 { font-size:1.03rem; margin:1.6rem 0 .3rem; }
+  .faq p { margin:0; color:var(--muted); }
+  .langs { padding:1.25rem 0 0; font-size:.88rem; line-height:2.1; }
+  .langs a { color:var(--muted); text-decoration:none; margin-inline-end:.85rem; white-space:nowrap; }
+  .langs a:hover { color:var(--accent); }
+  .langs a[aria-current] { color:var(--ink); font-weight:600; }
+  footer { margin:4rem 0 3rem; padding-top:1.5rem; border-top:1px solid var(--line); color:var(--muted); font-size:.92rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="langs" aria-label="Language">{{switcher}}</nav>
+
+<header>
+  <h1>{{h1}}</h1>
+  <p class="lede">{{lede}}</p>
+  <a class="btn" href="https://github.com/giloushaker/right-click-mp3/releases/latest">{{cta}}</a>
+  <span class="sub">{{ctaNote}}</span>
+
+  <div class="menu" aria-label="{{menuAria}}">
+    <div>{{menuOpen}}</div>
+    <div>{{menuPlay}}</div>
+    <div class="on">{{menuConvert}}&nbsp;&nbsp;›</div>
+    <div class="sub-item">{{fmt192}}</div>
+    <div class="sub-item">{{fmt320}}</div>
+    <div class="sub-item">{{fmtAac}}</div>
+    <div class="sub-item">{{fmtWavFlac}}</div>
+  </div>
+</header>
+
+<h2>{{installTitle}}</h2>
+<ol>
+  <li>{{install1}}</li>
+  <li>{{install2}}</li>
+  <li>{{install3}}</li>
+  <li>{{install4}}</li>
+</ol>
+<p class="note">{{installScript}}</p>
+<pre><code>powershell -NoProfile -ExecutionPolicy Bypass -File .\install-user.ps1</code></pre>
+
+<h2>{{useTitle}}</h2>
+<ol>
+  <li>{{use1}}</li>
+  <li>{{use2}}</li>
+  <li>{{use3}}</li>
+</ol>
+<p class="note">{{useNote}}</p>
+
+<h2>{{uninstallTitle}}</h2>
+<p>{{uninstall1}}</p>
+<p class="note">{{uninstall2}}</p>
+<pre><code>powershell -NoProfile -ExecutionPolicy Bypass -File "$env:LOCALAPPDATA\Programs\RightClickMP3\uninstall-user.ps1"</code></pre>
+<p class="note">{{uninstall3}}</p>
+
+<h2>{{whyTitle}}</h2>
+<ul>
+  <li>{{why1}}</li>
+  <li>{{why2}}</li>
+  <li>{{why3}}</li>
+  <li>{{why4}}</li>
+</ul>
+
+<h2>{{formatsTitle}}</h2>
+<p>{{formatsTo}}<br>{{formatsFrom}}</p>
+
+<h2>{{faqTitle}}</h2>
+<div class="faq">
+  <h3>{{q1}}</h3>
+  <p>{{a1}}</p>
+  <h3>{{q2}}</h3>
+  <p>{{a2}}</p>
+  <h3>{{q3}}</h3>
+  <p>{{a3}}</p>
+  <h3>{{q4}}</h3>
+  <p>{{a4}}</p>
+  <h3>{{q5}}</h3>
+  <p>{{a5}}</p>
+</div>
+
+<footer>
+  <a href="https://github.com/giloushaker/right-click-mp3">{{footSource}}</a> ·
+  <a href="https://github.com/giloushaker/right-click-mp3/releases">{{footReleases}}</a> ·
+  <a href="https://github.com/giloushaker/right-click-mp3/issues">{{footIssues}}</a><br>
+  {{footBuilt}}
+</footer>
+
+</div>
+</body>
+</html>

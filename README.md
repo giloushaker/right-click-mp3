@@ -15,6 +15,10 @@ learn a video editor, dodge ads, or upload their files to a website.
 **Converts to:** MP3 (192 or 320 kbps), AAC/M4A, WAV, FLAC.
 **Reads:** mp4, mkv, mov, avi, webm, wmv, m4a, aac, ogg, opus, wma, wav, flac, mp3.
 
+The menu, the progress window and the site are translated into 13 languages
+(EN, FR, ES, DE, IT, PT, NL, PL, RU, TR, JA, ZH, AR) and follow your Windows
+display language. The window follows your Windows light/dark setting.
+
 ## Install
 
 1. Download `Right-Click-MP3-Setup.exe` from the
@@ -72,8 +76,11 @@ are untouched.
 | `install-user.ps1` | Adds the Explorer menu under `HKCU`, no admin |
 | `uninstall-user.ps1` | Removes the menu, the shortcut and the files |
 | `ffmpeg-get.ps1` | Downloads ffmpeg into your user folder |
+| `lang.ps1` | UI strings for all 13 languages |
 | `installer.iss` | [Inno Setup](https://jrsoftware.org/isinfo.php) script for the `.exe` |
-| `docs/` | The GitHub Pages site |
+| `site/` | Page template plus one JSON dictionary per language |
+| `build-site.ps1` | Renders `site/` into `docs/` — run it after editing either |
+| `docs/` | The generated GitHub Pages site (do not edit by hand) |
 
 ## How it handles a multi-file selection
 

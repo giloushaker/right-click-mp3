@@ -11,28 +11,31 @@ if ($NoCopy) {
 } else {
     Write-Output "Installing to $installDir"
     New-Item -Path $installDir -ItemType Directory -Force | Out-Null
-    foreach ($f in 'convert.ps1', 'convert.vbs', 'ffmpeg-get.ps1', 'uninstall-user.ps1', 'README.md', 'LICENSE') {
+    foreach ($f in 'convert.ps1', 'convert.vbs', 'lang.ps1', 'ffmpeg-get.ps1', 'uninstall-user.ps1', 'README.md', 'LICENSE') {
         Copy-Item -Path (Join-Path $source $f) -Destination $installDir -Force
     }
 }
 
 $launcher = Join-Path $installDir 'convert.vbs'
 
+# Menu labels follow the Windows display language at install time.
+. (Join-Path $source 'lang.ps1')
+
 $exts = '.mp4', '.m4a', '.mkv', '.wav', '.flac', '.aac', '.mov', '.wmv', '.ogg', '.wma', '.mp3', '.avi', '.webm', '.opus'
 
 $formats = @(
-    @{ Key = '10mp3-192'; Label = 'MP3 (192 kbps, smaller)'; Args = '-Format mp3 -Bitrate 192k' }
-    @{ Key = '20mp3-320'; Label = 'MP3 (320 kbps, best)';    Args = '-Format mp3 -Bitrate 320k' }
-    @{ Key = '30m4a';     Label = 'AAC / M4A (128 kbps)';    Args = '-Format aac -Bitrate 128k' }
-    @{ Key = '40wav';     Label = 'WAV (uncompressed)';      Args = '-Format wav' }
-    @{ Key = '50flac';    Label = 'FLAC (lossless)';         Args = '-Format flac' }
+    @{ Key = '10mp3-192'; Label = (Get-Text 'mp3_192'); Args = '-Format mp3 -Bitrate 192k' }
+    @{ Key = '20mp3-320'; Label = (Get-Text 'mp3_320'); Args = '-Format mp3 -Bitrate 320k' }
+    @{ Key = '30m4a';     Label = (Get-Text 'aac');     Args = '-Format aac -Bitrate 128k' }
+    @{ Key = '40wav';     Label = (Get-Text 'wav');     Args = '-Format wav' }
+    @{ Key = '50flac';    Label = (Get-Text 'flac');    Args = '-Format flac' }
 )
 
 foreach ($ext in $exts) {
     # SystemFileAssociations adds verbs without changing which app opens the file.
     $menu = "HKCU:\Software\Classes\SystemFileAssociations\$ext\shell\RightClickMP3"
     New-Item -Path $menu -Force | Out-Null
-    Set-ItemProperty -Path $menu -Name 'MUIVerb' -Value 'Convert To'
+    Set-ItemProperty -Path $menu -Name 'MUIVerb' -Value (Get-Text 'menuTitle')
     Set-ItemProperty -Path $menu -Name 'Icon' -Value 'shell32.dll,116'
     # An empty SubCommands is what makes Explorer draw the flyout from the shell subkeys.
     Set-ItemProperty -Path $menu -Name 'SubCommands' -Value ''

@@ -11,8 +11,34 @@ Param(
 
 $ErrorActionPreference = 'Stop'
 $Format = $Format.ToLower()
+
+Add-Type -Name Native -Namespace Rcm3 -MemberDefinition @'
+[DllImport("user32.dll")] public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+[DllImport("user32.dll")] public static extern IntPtr LoadCursor(IntPtr hInstance, int id);
+[DllImport("user32.dll")] public static extern IntPtr CopyIcon(IntPtr h);
+[DllImport("user32.dll")] public static extern bool SetSystemCursor(IntPtr hcur, uint id);
+[DllImport("user32.dll")] public static extern bool SystemParametersInfoW(uint a, uint b, IntPtr c, uint d);
+[DllImport("dwmapi.dll")] public static extern int DwmSetWindowAttribute(IntPtr hWnd, int attr, ref int val, int size);
+'@
+
+# Follow the Windows light/dark app setting.
+$darkMode = 0 -eq (Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize' `
+                    -Name AppsUseLightTheme -ErrorAction SilentlyContinue).AppsUseLightTheme
+
+# Explorer gives no feedback of its own for a shell verb, so take over the
+# arrow cursor desktop-wide. Always paired with Restore-Cursor in a finally.
+function Set-BusyCursor {
+    foreach ($id in 32512, 32513) {   # OCR_NORMAL, OCR_IBEAM
+        $c = [Rcm3.Native]::CopyIcon([Rcm3.Native]::LoadCursor([IntPtr]::Zero, 32650))  # IDC_APPSTARTING
+        [void][Rcm3.Native]::SetSystemCursor($c, $id)
+    }
+}
+function Restore-Cursor {
+    [void][Rcm3.Native]::SystemParametersInfoW(0x0057, 0, [IntPtr]::Zero, 0)   # SPI_SETCURSORS
+}
 $here = Split-Path -Parent $MyInvocation.MyCommand.Definition
 $appName = 'Right Click MP3'
+. (Join-Path $here 'lang.ps1')   # UI strings for the Windows display language
 
 # ---------------------------------------------------------------- ffmpeg
 function Get-Ffmpeg {
@@ -29,14 +55,12 @@ function Get-Ffmpeg {
 $ffmpeg = Get-Ffmpeg
 if (-not $ffmpeg) {
     Add-Type -AssemblyName System.Windows.Forms
-    $ans = [System.Windows.Forms.MessageBox]::Show(
-        "The conversion engine (ffmpeg) is not installed yet.`r`n`r`nDownload it now? (about 30 MB, no admin rights needed)",
-        $appName, 'YesNo', 'Question')
+    $ans = [System.Windows.Forms.MessageBox]::Show((Get-Text 'ffmpegAsk'), $appName, 'YesNo', 'Question')
     if ($ans -ne 'Yes') { exit 2 }
     & (Join-Path $here 'ffmpeg-get.ps1')
     $ffmpeg = Get-Ffmpeg
     if (-not $ffmpeg) {
-        [void][System.Windows.Forms.MessageBox]::Show('Download failed. Please install ffmpeg manually.', $appName, 'OK', 'Error')
+        [void][System.Windows.Forms.MessageBox]::Show((Get-Text 'ffmpegFail'), $appName, 'OK', 'Error')
         exit 2
     }
 }
@@ -59,7 +83,7 @@ function Get-CommandLine($items) {
 }
 
 function Convert-One($path) {
-    if (-not (Test-Path -LiteralPath $path)) { return 'not found' }
+    if (-not (Test-Path -LiteralPath $path)) { return (Get-Text 'notFound') }
     $in = (Resolve-Path -LiteralPath $path).Path
     $dir = [IO.Path]::GetDirectoryName($in)
     $name = [IO.Path]::GetFileNameWithoutExtension($in)
@@ -100,8 +124,8 @@ if (-not $Paths -and -not $NoGui) {
     Add-Type -AssemblyName System.Windows.Forms
     $ofd = New-Object System.Windows.Forms.OpenFileDialog
     $ofd.Multiselect = $true
-    $ofd.Title = "Pick the files to convert to $($Format.ToUpper())"
-    $ofd.Filter = 'Audio and video|*.mp4;*.m4a;*.mkv;*.wav;*.flac;*.aac;*.mov;*.wmv;*.ogg;*.wma;*.mp3;*.avi;*.webm|All files|*.*'
+    $ofd.Title = (Get-Text 'pickTitle') -f $Format.ToUpper()
+    $ofd.Filter = "$(Get-Text 'filterMedia')|*.mp4;*.m4a;*.mkv;*.wav;*.flac;*.aac;*.mov;*.wmv;*.ogg;*.wma;*.mp3;*.avi;*.webm|$(Get-Text 'filterAll')|*.*"
     if ($ofd.ShowDialog() -ne 'OK') { exit 0 }
     $Paths = $ofd.FileNames
 }
@@ -168,16 +192,36 @@ if (-not $NoGui) {
 
     $btn = New-Object System.Windows.Forms.Button
     $btn.SetBounds(335, 94, 90, 26)
-    $btn.Text = 'Cancel'
-    $btn.Add_Click({ $script:cancel = $true; $btn.Enabled = $false; $btn.Text = 'Stopping' })
+    $btn.Text = (Get-Text 'cancel')
+    $btn.Add_Click({ $script:cancel = $true; $btn.Enabled = $false; $btn.Text = (Get-Text 'stopping') })
     $ui.Controls.Add($btn)
     $ui.Add_FormClosing({ $script:cancel = $true })
 
+    if ((Get-UiLang) -eq 'ar') { $ui.RightToLeft = 'Yes'; $ui.RightToLeftLayout = $true }
+
+    if ($darkMode) {
+        $ui.BackColor = [System.Drawing.Color]::FromArgb(32, 32, 32)
+        $ui.ForeColor = [System.Drawing.Color]::FromArgb(240, 240, 240)
+        $btn.FlatStyle = 'Flat'
+        $btn.BackColor = [System.Drawing.Color]::FromArgb(58, 58, 58)
+        $btn.FlatAppearance.BorderColor = [System.Drawing.Color]::FromArgb(90, 90, 90)
+    }
+
     $ui.Show()
+    # wscript starts us with SW_HIDE, and the first form of a process inherits
+    # that show state, so the window needs an explicit SW_SHOW to appear.
+    [void][Rcm3.Native]::ShowWindow($ui.Handle, 5)
+    if ($darkMode) {
+        $on = 1
+        # 20 on current Windows 10/11, 19 on the older 1809-1903 builds
+        if ([Rcm3.Native]::DwmSetWindowAttribute($ui.Handle, 20, [ref]$on, 4) -ne 0) {
+            [void][Rcm3.Native]::DwmSetWindowAttribute($ui.Handle, 19, [ref]$on, 4)
+        }
+    }
     $ui.Activate()
     $ui.Refresh()
-    [System.Windows.Forms.Application]::UseWaitCursor = $true
 }
+Set-BusyCursor
 
 function Update-Ui {
     if ($ui) { [System.Windows.Forms.Application]::DoEvents() }
@@ -199,7 +243,8 @@ try {
         $total += $batch.Count
         foreach ($f in $batch) {
             if ($script:cancel) { break }
-            Set-Status "Converting $($done + 1) of $total to $($Format.ToUpper())`r`n$([IO.Path]::GetFileName($f))"
+            Set-Status (((Get-Text 'converting') -f ($done + 1), $total, $Format.ToUpper()) +
+                        "`r`n" + [IO.Path]::GetFileName($f))
             $err = Convert-One $f
             if ($err) { $failed += "$([IO.Path]::GetFileName($f)) - $err" }
             $done++
@@ -207,19 +252,23 @@ try {
         if ($script:cancel) { break }
         # Explorer starts the per-file processes in a trickle, so wait a beat
         # after an empty-looking queue before deciding the job is over.
-        Set-Status 'Finishing...'
+        Set-Status (Get-Text 'finishing')
         $wait = [Diagnostics.Stopwatch]::StartNew()
         while ($wait.ElapsedMilliseconds -lt 800) { Update-Ui; Start-Sleep -Milliseconds 60 }
     }
 } finally {
+    Restore-Cursor
     Remove-Item -LiteralPath $queue -Force -ErrorAction SilentlyContinue
     if ($ui) { $ui.Close(); $ui.Dispose() }
     $worker.ReleaseMutex()
 }
 
-$msg = if ($script:cancel) { "Stopped. $done file(s) converted." }
-       elseif ($failed) { "$($done - $failed.Count) of $done converted.`r`n`r`nFailed:`r`n" + ($failed -join "`r`n") }
-       else { "Done. $done file(s) converted to $($Format.ToUpper()), saved next to the originals." }
+$msg = if ($script:cancel) { (Get-Text 'stoppedMsg') -f $done }
+       elseif ($failed) {
+           (((Get-Text 'partialMsg') -f ($done - $failed.Count), $done) +
+            "`r`n`r`n" + (Get-Text 'failedTitle') + "`r`n" + ($failed -join "`r`n"))
+       }
+       else { (Get-Text 'doneMsg') -f $done, $Format.ToUpper() }
 
 if ($NoGui) { Write-Output $msg }
 elseif ($failed) { [void][System.Windows.Forms.MessageBox]::Show($msg, $appName, 'OK', 'Warning') }

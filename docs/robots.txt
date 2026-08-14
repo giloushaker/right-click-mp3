@@ -1,0 +1,3 @@
+﻿User-agent: *
+Allow: /
+Sitemap: https://giloushaker.github.io/right-click-mp3/sitemap.xml

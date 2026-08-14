@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Right Click MP3 — تحويل MP4 إلى MP3 من قائمة الزر الأيمن في ويندوز</title>
+<meta name="description" content="أداة مجانية مفتوحة المصدر لويندوز. انقر بالزر الأيمن على أي مقطع فيديو أو أغنية، اختر MP3، وانتهى الأمر. تحوّل عدة ملفات دفعة واحدة. بلا إعلانات، وبلا رفع للملفات، وبلا حساب، وبلا برامج غير مرغوبة.">
+<link rel="canonical" href="https://giloushaker.github.io/right-click-mp3/ar/">
+<link rel="alternate" hreflang="en" href="https://giloushaker.github.io/right-click-mp3/">
+<link rel="alternate" hreflang="fr" href="https://giloushaker.github.io/right-click-mp3/fr/">
+<link rel="alternate" hreflang="es" href="https://giloushaker.github.io/right-click-mp3/es/">
+<link rel="alternate" hreflang="de" href="https://giloushaker.github.io/right-click-mp3/de/">
+<link rel="alternate" hreflang="it" href="https://giloushaker.github.io/right-click-mp3/it/">
+<link rel="alternate" hreflang="pt" href="https://giloushaker.github.io/right-click-mp3/pt/">
+<link rel="alternate" hreflang="nl" href="https://giloushaker.github.io/right-click-mp3/nl/">
+<link rel="alternate" hreflang="pl" href="https://giloushaker.github.io/right-click-mp3/pl/">
+<link rel="alternate" hreflang="ru" href="https://giloushaker.github.io/right-click-mp3/ru/">
+<link rel="alternate" hreflang="tr" href="https://giloushaker.github.io/right-click-mp3/tr/">
+<link rel="alternate" hreflang="ja" href="https://giloushaker.github.io/right-click-mp3/ja/">
+<link rel="alternate" hreflang="zh" href="https://giloushaker.github.io/right-click-mp3/zh/">
+<link rel="alternate" hreflang="ar" href="https://giloushaker.github.io/right-click-mp3/ar/">
+<link rel="alternate" hreflang="x-default" href="https://giloushaker.github.io/right-click-mp3/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Right Click MP3 — حوّل MP4 إلى MP3 بنقرة يمنى واحدة">
+<meta property="og:description" content="أداة مجانية مفتوحة المصدر لويندوز. انقر بالزر الأيمن على أي مقطع فيديو أو أغنية، اختر MP3، وانتهى الأمر. تحوّل عدة ملفات دفعة واحدة. بلا إعلانات، وبلا رفع للملفات، وبلا حساب، وبلا برامج غير مرغوبة.">
+<meta property="og:url" content="https://giloushaker.github.io/right-click-mp3/ar/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>🎵</text></svg>">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Right Click MP3",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Windows 10, Windows 11",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "license": "https://opensource.org/licenses/MIT",
+  "downloadUrl": "https://github.com/giloushaker/right-click-mp3/releases/latest",
+  "inLanguage": "ar",
+  "description": "أداة مجانية مفتوحة المصدر لويندوز. انقر بالزر الأيمن على أي مقطع فيديو أو أغنية، اختر MP3، وانتهى الأمر. تحوّل عدة ملفات دفعة واحدة. بلا إعلانات، وبلا رفع للملفات، وبلا حساب، وبلا برامج غير مرغوبة."
+}
+</script>
+<style>
+  :root {
+    --bg:#fbfbfa; --panel:#fff; --ink:#16161a; --muted:#5d5d68;
+    --line:#e3e3df; --accent:#1f6f4a; --accent-ink:#fff; --code:#f3f3f0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:#131316; --panel:#1a1a1f; --ink:#ececef; --muted:#a0a0ac;
+      --line:#2c2c33; --accent:#4fb286; --accent-ink:#0d1a14; --code:#202027;
+    }
+  }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; background:var(--bg); color:var(--ink);
+    font:17px/1.65 -apple-system,"Segoe UI",system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap { max-width:46rem; margin:0 auto; padding:0 1.25rem; }
+  header { padding:3.5rem 0 2.5rem; }
+  h1 { font-size:clamp(2rem,6vw,2.9rem); line-height:1.15; letter-spacing:-.02em; margin:0 0 .6rem; }
+  .lede { font-size:1.2rem; color:var(--muted); margin:0 0 2rem; max-width:34rem; }
+  h2 { font-size:1.35rem; letter-spacing:-.01em; margin:3rem 0 .8rem; }
+  a { color:var(--accent); }
+  .btn {
+    display:inline-block; background:var(--accent); color:var(--accent-ink);
+    text-decoration:none; font-weight:600; padding:.85rem 1.5rem; border-radius:.5rem;
+  }
+  .btn:hover { filter:brightness(1.08); }
+  .sub { display:block; font-size:.9rem; color:var(--muted); margin-top:.7rem; }
+  .menu {
+    background:var(--panel); border:1px solid var(--line); border-radius:.6rem;
+    padding:.45rem; max-width:22rem; font-size:.95rem;
+    box-shadow:0 8px 24px rgba(0,0,0,.07); margin:1.75rem 0 0;
+  }
+  .menu div { padding:.4rem .7rem; border-radius:.35rem; color:var(--muted); }
+  .menu .on { background:var(--accent); color:var(--accent-ink); font-weight:600; }
+  .menu .sub-item { padding-inline-start:1.9rem; }
+  ol, ul { padding-inline-start:1.3rem; }
+  li { margin:.5rem 0; }
+  code { background:var(--code); padding:.15em .4em; border-radius:.3em; font-size:.9em; }
+  pre { background:var(--code); padding:1rem; border-radius:.5rem; overflow-x:auto; direction:ltr; text-align:left; }
+  pre code { background:none; padding:0; }
+  .note { color:var(--muted); font-size:.95rem; }
+  .faq h3 { font-size:1.03rem; margin:1.6rem 0 .3rem; }
+  .faq p { margin:0; color:var(--muted); }
+  .langs { padding:1.25rem 0 0; font-size:.88rem; line-height:2.1; }
+  .langs a { color:var(--muted); text-decoration:none; margin-inline-end:.85rem; white-space:nowrap; }
+  .langs a:hover { color:var(--accent); }
+  .langs a[aria-current] { color:var(--ink); font-weight:600; }
+  footer { margin:4rem 0 3rem; padding-top:1.5rem; border-top:1px solid var(--line); color:var(--muted); font-size:.92rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="langs" aria-label="Language"><a href="https://giloushaker.github.io/right-click-mp3/" lang="en">English</a>
+<a href="https://giloushaker.github.io/right-click-mp3/fr/" lang="fr">Français</a>
+<a href="https://giloushaker.github.io/right-click-mp3/es/" lang="es">Español</a>
+<a href="https://giloushaker.github.io/right-click-mp3/de/" lang="de">Deutsch</a>
+<a href="https://giloushaker.github.io/right-click-mp3/it/" lang="it">Italiano</a>
+<a href="https://giloushaker.github.io/right-click-mp3/pt/" lang="pt">Português</a>
+<a href="https://giloushaker.github.io/right-click-mp3/nl/" lang="nl">Nederlands</a>
+<a href="https://giloushaker.github.io/right-click-mp3/pl/" lang="pl">Polski</a>
+<a href="https://giloushaker.github.io/right-click-mp3/ru/" lang="ru">Русский</a>
+<a href="https://giloushaker.github.io/right-click-mp3/tr/" lang="tr">Türkçe</a>
+<a href="https://giloushaker.github.io/right-click-mp3/ja/" lang="ja">日本語</a>
+<a href="https://giloushaker.github.io/right-click-mp3/zh/" lang="zh">简体中文</a>
+<a href="https://giloushaker.github.io/right-click-mp3/ar/" lang="ar" aria-current="page">العربية</a></nav>
+
+<header>
+  <h1>حوّل الفيديو إلى MP3 بنقرة يمنى واحدة.</h1>
+  <p class="lede">من أجل مشغّل MP3 القديم الذي لا يقرأ سوى صيغة MP3. حدّد ملفاتك في مستكشف ويندوز، انقر بالزر الأيمن، واختر الصيغة. هذا هو البرنامج كله.</p>
+  <a class="btn" href="https://github.com/giloushaker/right-click-mp3/releases/latest">التنزيل لويندوز</a>
+  <span class="sub">مجاني · مفتوح المصدر · بلا إعلانات · بلا حساب · لا يُرفع أي شيء إلى الإنترنت</span>
+
+  <div class="menu" aria-label="مثال على قائمة الزر الأيمن في ويندوز">
+    <div>فتح</div>
+    <div>تشغيل</div>
+    <div class="on">تحويل إلى&nbsp;&nbsp;›</div>
+    <div class="sub-item">MP3 (192 كيلوبت/ث، حجم أصغر)</div>
+    <div class="sub-item">MP3 (320 كيلوبت/ث، أفضل جودة)</div>
+    <div class="sub-item">AAC / M4A</div>
+    <div class="sub-item">WAV · FLAC</div>
+  </div>
+</header>
+
+<h2>التثبيت</h2>
+<ol>
+  <li>نزّل ملف <a href="https://github.com/giloushaker/right-click-mp3/releases/latest">Right-Click-MP3-Setup.exe</a> من أحدث إصدار.</li>
+  <li>شغّله. لا حاجة لكلمة مرور المسؤول: يجري التثبيت داخل مجلد المستخدم الخاص بك.</li>
+  <li>قد يعرض ويندوز نافذة زرقاء تقول <em>«قام Windows بحماية جهاز الكمبيوتر»</em>، لأن المثبّت غير موقّع رقميًا بعد. اضغط <strong>مزيد من المعلومات</strong> ← <strong>تشغيل على أي حال</strong>.</li>
+  <li>تم. القائمة تعمل فورًا، دون إعادة تشغيل ودون تسجيل خروج.</li>
+</ol>
+<p class="note">تفضّل النصوص البرمجية؟ نزّل ملف المصدر المضغوط ثم شغّل:</p>
+<pre><code>powershell -NoProfile -ExecutionPolicy Bypass -File .\install-user.ps1</code></pre>
+
+<h2>طريقة الاستخدام</h2>
+<ol>
+  <li>حدّد ملفًا واحدًا أو خمسين ملفًا في مستكشف الملفات.</li>
+  <li>انقر بالزر الأيمن ← <strong>تحويل إلى</strong> ← اختر الصيغة. في ويندوز 11 تجدها ضمن <em>إظهار المزيد من الخيارات</em>.</li>
+  <li>تظهر نافذة تقدّم صغيرة فيها زر إلغاء. تُنشأ الملفات الجديدة في المجلد نفسه بجانب الملفات الأصلية، ولا يُستبدل أو يُحذف أي شيء.</li>
+</ol>
+<p class="note">عند أول تحويل يطلب البرنامج الإذن بتنزيل ffmpeg (نحو 30 ميجابايت)، وهو المحرك المجاني الذي ينفّذ العمل الفعلي. بعدها يبدأ التشغيل فورًا.</p>
+
+<h2>إزالة التثبيت</h2>
+<p>الإعدادات ← التطبيقات ← التطبيقات المثبتة ← <strong>Right Click MP3</strong> ← إلغاء التثبيت.</p>
+<p class="note">أو شغّل نص إزالة التثبيت:</p>
+<pre><code>powershell -NoProfile -ExecutionPolicy Bypass -File "$env:LOCALAPPDATA\Programs\RightClickMP3\uninstall-user.ps1"</code></pre>
+<p class="note">كلا الطريقتين تزيل القائمة والاختصار ومجلد البرنامج ونسخة ffmpeg التي فيه. أما ملفاتك المحوّلة فتبقى كما هي.</p>
+
+<h2>لماذا هذا البرنامج بدل مواقع التحويل</h2>
+<ul>
+  <li><strong>ملفاتك تبقى على جهازك.</strong> بلا رفع، وبلا انتظار في الطابور، وبلا حد أقصى للحجم.</li>
+  <li><strong>بلا برامج غير مرغوبة.</strong> لا يحتوي المثبّت إلا على هذا البرنامج. وكل سطر من الشيفرة <a href="https://github.com/giloushaker/right-click-mp3">منشور على GitHub</a>.</li>
+  <li><strong>بلا كلمة مرور المسؤول</strong> وبلا حساب تنشئه.</li>
+  <li><strong>ألبوم كامل دفعة واحدة</strong> بدل ملف واحد مع كل إعادة تحميل للصفحة.</li>
+</ul>
+
+<h2>الصيغ</h2>
+<p><strong>يحوّل إلى:</strong> MP3 (بمعدل 192 أو 320 كيلوبت/ث)، وAAC/M4A، وWAV، وFLAC.<br><strong>يقرأ:</strong> MP4، MKV، MOV، AVI، WEBM، WMV، M4A، AAC، OGG، OPUS، WMA، WAV، FLAC، MP3.</p>
+
+<h2>أسئلة</h2>
+<div class="faq">
+  <h3>هل هو مجاني فعلًا؟</h3>
+  <p>نعم. برخصة MIT، بلا نسخة مدفوعة، وبلا عروض إضافية، وبلا نوافذ إلحاح.</p>
+  <h3>لماذا يحذّر ويندوز منه؟</h3>
+  <p>شهادات توقيع الشيفرة مكلفة، لذلك لا يعرف SmartScreen الناشر بعد. يمكنك قراءة كل سطر من الشيفرة المصدرية، أو بناء المثبّت بنفسك، قبل أن تثق به.</p>
+  <h3>ما هو ffmpeg؟</h3>
+  <p>محرك التحويل المجاني الذي تقوم عليه معظم برامج الوسائط. يُنزَّل من خادم البناء الرسمي لويندوز إلى مجلد المستخدم الخاص بك.</p>
+  <h3>هل يعمل على أجهزة ماك؟</h3>
+  <p>لا، فهذه ميزة في مستكشف ويندوز. ويندوز 10 و11.</p>
+  <h3>هل يحذف ملفاتي الأصلية أو يغيّرها؟</h3>
+  <p>أبدًا. يُكتب الملف المحوّل بجانب الأصلي، وإذا كان الاسم مستخدمًا يصبح <code>song (1).mp3</code>.</p>
+</div>
+
+<footer>
+  <a href="https://github.com/giloushaker/right-click-mp3">الشيفرة المصدرية</a> ·
+  <a href="https://github.com/giloushaker/right-click-mp3/releases">الإصدارات</a> ·
+  <a href="https://github.com/giloushaker/right-click-mp3/issues">الإبلاغ عن مشكلة</a><br>
+  مبني على <a href="https://ffmpeg.org/">ffmpeg</a>. برخصة MIT.
+</footer>
+
+</div>
+</body>
+</html>
