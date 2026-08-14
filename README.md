@@ -1,9 +1,10 @@
 # Right Click MP3
 
-Right-click a video or music file in Windows Explorer → **Convert To** → **MP3**. Done.
+Right-click a music file in Windows Explorer → **Convert To** → **MP3**. Done.
+Videos work the same way, and only the audio comes out.
 
 Made for people who just want an MP3 for an old MP3 player and should not have to
-learn a video editor, dodge ads, or upload their files to a website.
+learn an audio editor, dodge ads, or upload their files to a website.
 
 **[Website and download →](https://giloushaker.github.io/right-click-mp3/)**
 

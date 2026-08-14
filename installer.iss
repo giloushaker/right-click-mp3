@@ -3,7 +3,7 @@
 ; The registry work lives in install-user.ps1 so there is one source of truth.
 
 #define AppName "Right Click MP3"
-#define AppVersion "1.0.0"
+#define AppVersion "1.1.1"
 
 [Setup]
 AppName={#AppName}
@@ -55,4 +55,5 @@ Filename: "powershell.exe"; \
 Filename: "powershell.exe"; \
   Parameters: "-NoProfile -ExecutionPolicy Bypass -File ""{app}\uninstall-user.ps1"""; \
   Flags: runhidden; RunOnceId: "RemoveMenu"
+
 
