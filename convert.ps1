@@ -19,6 +19,7 @@ Add-Type -Name Native -Namespace Rcm3 -MemberDefinition @'
 [DllImport("user32.dll")] public static extern bool SetSystemCursor(IntPtr hcur, uint id);
 [DllImport("user32.dll")] public static extern bool SystemParametersInfoW(uint a, uint b, IntPtr c, uint d);
 [DllImport("dwmapi.dll")] public static extern int DwmSetWindowAttribute(IntPtr hWnd, int attr, ref int val, int size);
+[DllImport("user32.dll")] public static extern bool SetWindowPos(IntPtr hWnd, IntPtr after, int x, int y, int cx, int cy, uint flags);
 '@
 
 # Follow the Windows light/dark app setting.
@@ -184,11 +185,19 @@ if (-not $NoGui) {
     $label.Text = 'Starting...'
     $ui.Controls.Add($label)
 
-    $bar = New-Object System.Windows.Forms.ProgressBar
-    $bar.SetBounds(15, 62, 410, 20)
-    $bar.Style = 'Marquee'      # ffmpeg gives no reliable per-file percentage
-    $bar.MarqueeAnimationSpeed = 25
-    $ui.Controls.Add($bar)
+    # Two panels instead of a ProgressBar: the themed control ignores BackColor,
+    # so it stays white on a dark form. This also animates off our own pump.
+    $track = New-Object System.Windows.Forms.Panel
+    $track.SetBounds(15, 64, 410, 6)
+    $track.BackColor = if ($darkMode) { [System.Drawing.Color]::FromArgb(58, 58, 58) }
+                       else { [System.Drawing.Color]::FromArgb(226, 226, 222) }
+    $thumb = New-Object System.Windows.Forms.Panel
+    $thumb.SetBounds(0, 0, 120, 6)
+    $thumb.BackColor = if ($darkMode) { [System.Drawing.Color]::FromArgb(79, 178, 134) }
+                       else { [System.Drawing.Color]::FromArgb(31, 111, 74) }
+    $track.Controls.Add($thumb)
+    $ui.Controls.Add($track)
+    $spin = [Diagnostics.Stopwatch]::StartNew()
 
     $btn = New-Object System.Windows.Forms.Button
     $btn.SetBounds(335, 94, 90, 26)
@@ -207,24 +216,33 @@ if (-not $NoGui) {
         $btn.FlatAppearance.BorderColor = [System.Drawing.Color]::FromArgb(90, 90, 90)
     }
 
-    $ui.Show()
-    # wscript starts us with SW_HIDE, and the first form of a process inherits
-    # that show state, so the window needs an explicit SW_SHOW to appear.
-    [void][Rcm3.Native]::ShowWindow($ui.Handle, 5)
     if ($darkMode) {
+        # Must land before the frame is first drawn, or the title bar stays light.
+        # Attribute 20 on current Windows 10/11, 19 on the older 1809-1903 builds.
         $on = 1
-        # 20 on current Windows 10/11, 19 on the older 1809-1903 builds
         if ([Rcm3.Native]::DwmSetWindowAttribute($ui.Handle, 20, [ref]$on, 4) -ne 0) {
             [void][Rcm3.Native]::DwmSetWindowAttribute($ui.Handle, 19, [ref]$on, 4)
         }
     }
+
+    $ui.Show()
+    # wscript starts us with SW_HIDE, and the first form of a process inherits
+    # that show state, so the window needs an explicit SW_SHOW to appear.
+    [void][Rcm3.Native]::ShowWindow($ui.Handle, 5)
+    # SWP_NOMOVE|NOSIZE|NOZORDER|FRAMECHANGED: repaint the frame in the new colour
+    [void][Rcm3.Native]::SetWindowPos($ui.Handle, [IntPtr]::Zero, 0, 0, 0, 0, 0x0002 -bor 0x0001 -bor 0x0004 -bor 0x0020)
     $ui.Activate()
     $ui.Refresh()
 }
 Set-BusyCursor
 
 function Update-Ui {
-    if ($ui) { [System.Windows.Forms.Application]::DoEvents() }
+    if (-not $ui) { return }
+    $span = $track.Width - $thumb.Width
+    $t = ($spin.ElapsedMilliseconds % 2600) / 1300.0     # 0..2, ping-pong
+    $f = if ($t -le 1) { $t } else { 2 - $t }
+    $thumb.Left = [int]($f * $span)
+    [System.Windows.Forms.Application]::DoEvents()
 }
 
 function Set-Status($text) {
