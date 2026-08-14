@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Right Click MP3 — convert MP4 to MP3 from the Windows right-click menu</title>
+<meta name="description" content="Free open-source Windows tool. Right-click any video or music file, pick MP3, done. Converts many files at once. No ads, no uploads, no account, no adware.">
+<link rel="canonical" href="https://giloushaker.github.io/right-click-mp3/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Right Click MP3 — convert MP4 to MP3 with one right-click">
+<meta property="og:description" content="Free and open source. Right-click a video in Windows Explorer, pick MP3, done. Works on a whole selection at once. Nothing is uploaded.">
+<meta property="og:url" content="https://giloushaker.github.io/right-click-mp3/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>🎵</text></svg>">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Right Click MP3",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Windows 10, Windows 11",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "license": "https://opensource.org/licenses/MIT",
+  "downloadUrl": "https://github.com/giloushaker/right-click-mp3/releases/latest",
+  "description": "Right-click any video or audio file in Windows Explorer and convert it to MP3, M4A, WAV or FLAC. Free and open source."
+}
+</script>
+<style>
+  :root {
+    --bg:#fbfbfa; --panel:#fff; --ink:#16161a; --muted:#5d5d68;
+    --line:#e3e3df; --accent:#1f6f4a; --accent-ink:#fff; --code:#f3f3f0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:#131316; --panel:#1a1a1f; --ink:#ececef; --muted:#a0a0ac;
+      --line:#2c2c33; --accent:#4fb286; --accent-ink:#0d1a14; --code:#202027;
+    }
+  }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; background:var(--bg); color:var(--ink);
+    font:17px/1.65 -apple-system,"Segoe UI",system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap { max-width:46rem; margin:0 auto; padding:0 1.25rem; }
+  header { padding:4.5rem 0 2.5rem; }
+  h1 { font-size:clamp(2rem,6vw,2.9rem); line-height:1.15; letter-spacing:-.02em; margin:0 0 .6rem; }
+  .lede { font-size:1.2rem; color:var(--muted); margin:0 0 2rem; max-width:34rem; }
+  h2 { font-size:1.35rem; letter-spacing:-.01em; margin:3rem 0 .8rem; }
+  a { color:var(--accent); }
+  .btn {
+    display:inline-block; background:var(--accent); color:var(--accent-ink);
+    text-decoration:none; font-weight:600; padding:.85rem 1.5rem; border-radius:.5rem;
+  }
+  .btn:hover { filter:brightness(1.08); }
+  .sub { display:block; font-size:.9rem; color:var(--muted); margin-top:.7rem; }
+  .menu {
+    background:var(--panel); border:1px solid var(--line); border-radius:.6rem;
+    padding:.45rem; max-width:21rem; font-size:.95rem;
+    box-shadow:0 8px 24px rgba(0,0,0,.07); margin:1.75rem 0 0;
+  }
+  .menu div { padding:.4rem .7rem; border-radius:.35rem; color:var(--muted); }
+  .menu .on { background:var(--accent); color:var(--accent-ink); font-weight:600; }
+  .menu .sub-item { padding-left:1.9rem; }
+  ol, ul { padding-left:1.3rem; }
+  li { margin:.5rem 0; }
+  code { background:var(--code); padding:.15em .4em; border-radius:.3em; font-size:.9em; }
+  pre { background:var(--code); padding:1rem; border-radius:.5rem; overflow-x:auto; }
+  pre code { background:none; padding:0; }
+  .note { color:var(--muted); font-size:.95rem; }
+  .faq h3 { font-size:1.03rem; margin:1.6rem 0 .3rem; }
+  .faq p { margin:0; color:var(--muted); }
+  footer { margin:4rem 0 3rem; padding-top:1.5rem; border-top:1px solid var(--line); color:var(--muted); font-size:.92rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Turn a video into an MP3 with one right-click.</h1>
+  <p class="lede">
+    For the old MP3 player that only plays MP3. Select your files in Windows
+    Explorer, right-click, pick a format. That is the whole program.
+  </p>
+  <a class="btn" href="https://github.com/giloushaker/right-click-mp3/releases/latest">Download for Windows</a>
+  <span class="sub">Free · open source · no ads · no account · nothing is uploaded anywhere</span>
+
+  <div class="menu" aria-label="Example of the Windows right-click menu">
+    <div>Open</div>
+    <div>Play</div>
+    <div class="on">Convert To&nbsp;&nbsp;›</div>
+    <div class="sub-item">MP3 (192 kbps, smaller)</div>
+    <div class="sub-item">MP3 (320 kbps, best)</div>
+    <div class="sub-item">AAC / M4A</div>
+    <div class="sub-item">WAV · FLAC</div>
+  </div>
+</header>
+
+<h2>Install</h2>
+<ol>
+  <li>Download
+      <a href="https://github.com/giloushaker/right-click-mp3/releases/latest">Right-Click-MP3-Setup.exe</a>
+      from the latest release.</li>
+  <li>Run it. No administrator password: it installs into your own user folder.</li>
+  <li>Windows may show a blue <em>"Windows protected your PC"</em> box, because the
+      installer is not code-signed yet. Click <strong>More info</strong> →
+      <strong>Run anyway</strong>.</li>
+  <li>Done. The menu works right away — no reboot, no sign-out.</li>
+</ol>
+<p class="note">Prefer scripts? Download the source zip and run:</p>
+<pre><code>powershell -NoProfile -ExecutionPolicy Bypass -File .\install-user.ps1</code></pre>
+
+<h2>Use it</h2>
+<ol>
+  <li>Select one file or fifty in File Explorer.</li>
+  <li>Right-click → <strong>Convert To</strong> → choose a format.
+      On Windows 11 it lives under <em>Show more options</em>.</li>
+  <li>A small progress window runs, with a Cancel button. The new files appear in
+      the same folder, next to the originals. Nothing is replaced or deleted.</li>
+</ol>
+<p class="note">
+  The first conversion asks permission to download ffmpeg (about 30 MB), the free
+  engine that does the actual work. After that it starts instantly.
+</p>
+
+<h2>Uninstall</h2>
+<p>Settings → Apps → Installed apps → <strong>Right Click MP3</strong> → Uninstall.</p>
+<p class="note">Or run the uninstall script:</p>
+<pre><code>powershell -NoProfile -ExecutionPolicy Bypass -File "$env:LOCALAPPDATA\Programs\RightClickMP3\uninstall-user.ps1"</code></pre>
+<p class="note">
+  Either one removes the menu, the shortcut, the program folder and its copy of
+  ffmpeg. Your converted files stay where they are.
+</p>
+
+<h2>Why this instead of a converter website</h2>
+<ul>
+  <li><strong>Your files stay on your computer.</strong> No upload, no queue, no size limit.</li>
+  <li><strong>No adware.</strong> The installer contains this program and nothing else.
+      Every line is <a href="https://github.com/giloushaker/right-click-mp3">public on GitHub</a>.</li>
+  <li><strong>No admin password</strong> and no account to create.</li>
+  <li><strong>Whole albums at once</strong> instead of one file per page reload.</li>
+</ul>
+
+<h2>Formats</h2>
+<p>
+  <strong>Converts to:</strong> MP3 (192 or 320 kbps), AAC/M4A, WAV, FLAC.<br>
+  <strong>Reads:</strong> MP4, MKV, MOV, AVI, WEBM, WMV, M4A, AAC, OGG, OPUS, WMA, WAV, FLAC, MP3.
+</p>
+
+<h2>Questions</h2>
+<div class="faq">
+  <h3>Is it really free?</h3>
+  <p>Yes. MIT licensed, no paid tier, no upsell, no nag screen.</p>
+
+  <h3>Why does Windows warn about it?</h3>
+  <p>Code-signing certificates cost money, so SmartScreen does not recognise the
+     publisher yet. You can read every line of the source, or build the installer
+     yourself, before trusting it.</p>
+
+  <h3>What is ffmpeg?</h3>
+  <p>The free conversion engine most media software is built on. It is downloaded
+     from the official Windows build server into your user folder.</p>
+
+  <h3>Does it work on a Mac?</h3>
+  <p>No — this is a Windows Explorer feature. Windows 10 and 11.</p>
+
+  <h3>Does it delete or change my originals?</h3>
+  <p>Never. The converted file is written next to the original, and if that name
+     is taken it becomes <code>song (1).mp3</code>.</p>
+</div>
+
+<footer>
+  <a href="https://github.com/giloushaker/right-click-mp3">Source code</a> ·
+  <a href="https://github.com/giloushaker/right-click-mp3/releases">Releases</a> ·
+  <a href="https://github.com/giloushaker/right-click-mp3/issues">Report a problem</a><br>
+  Built on <a href="https://ffmpeg.org/">ffmpeg</a>. MIT licensed.
+</footer>
+
+</div>
+</body>
+</html>

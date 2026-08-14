@@ -1,0 +1,30 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build installer
+        run: '& "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe" /O"dist" installer.iss'
+
+      - name: Publish release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/Right-Click-MP3-Setup.exe
+          generate_release_notes: true
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Right-Click-MP3-Setup
+          path: dist/Right-Click-MP3-Setup.exe

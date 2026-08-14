@@ -1,0 +1,6 @@
+# Ignore local and build artifacts
+*.zip
+*.user
+*.log
+node_modules/
+dist/
