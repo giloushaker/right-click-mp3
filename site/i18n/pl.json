@@ -16,7 +16,7 @@
   "fmtAac": "AAC / M4A",
   "fmtWavFlac": "WAV · FLAC",
   "installTitle": "Instalacja",
-  "install1": "Pobierz plik <a href=\"https://github.com/giloushaker/right-click-mp3/releases/latest\">Right-Click-MP3-Setup.exe</a> z najnowszego wydania.",
+  "install1": "Pobierz plik <a href=\"https://github.com/giloushaker/right-click-mp3/releases/latest/download/Right-Click-MP3-Setup.exe\">Right-Click-MP3-Setup.exe</a> z najnowszego wydania.",
   "install2": "Uruchom go. Bez hasła administratora — instaluje się w Twoim folderze użytkownika.",
   "install3": "Windows może pokazać niebieskie okno <em>„System Windows ochronił Twój komputer”</em>, ponieważ instalator nie jest jeszcze podpisany cyfrowo. Kliknij <strong>Więcej informacji</strong> → <strong>Uruchom mimo to</strong>.",
   "install4": "Gotowe. Menu działa od razu — bez restartu i bez wylogowania.",

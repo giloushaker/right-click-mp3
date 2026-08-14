@@ -16,7 +16,7 @@
   "fmtAac": "AAC / M4A",
   "fmtWavFlac": "WAV · FLAC",
   "installTitle": "Installation",
-  "install1": "Laden Sie <a href=\"https://github.com/giloushaker/right-click-mp3/releases/latest\">Right-Click-MP3-Setup.exe</a> aus der neuesten Version herunter.",
+  "install1": "Laden Sie <a href=\"https://github.com/giloushaker/right-click-mp3/releases/latest/download/Right-Click-MP3-Setup.exe\">Right-Click-MP3-Setup.exe</a> aus der neuesten Version herunter.",
   "install2": "Starten Sie die Datei. Kein Administratorkennwort nötig: Die Installation erfolgt in Ihrem eigenen Benutzerordner.",
   "install3": "Windows zeigt eventuell das blaue Fenster <em>„Der Computer wurde durch Windows geschützt“</em>, weil das Installationsprogramm noch nicht signiert ist. Klicken Sie auf <strong>Weitere Informationen</strong> → <strong>Trotzdem ausführen</strong>.",
   "install4": "Fertig. Das Menü ist sofort da — ohne Neustart, ohne Abmelden.",

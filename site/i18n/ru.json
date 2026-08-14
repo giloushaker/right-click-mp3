@@ -16,7 +16,7 @@
   "fmtAac": "AAC / M4A",
   "fmtWavFlac": "WAV · FLAC",
   "installTitle": "Установка",
-  "install1": "Скачайте <a href=\"https://github.com/giloushaker/right-click-mp3/releases/latest\">Right-Click-MP3-Setup.exe</a> из последнего выпуска.",
+  "install1": "Скачайте <a href=\"https://github.com/giloushaker/right-click-mp3/releases/latest/download/Right-Click-MP3-Setup.exe\">Right-Click-MP3-Setup.exe</a> из последнего выпуска.",
   "install2": "Запустите файл. Пароль администратора не нужен: установка идёт в вашу пользовательскую папку.",
   "install3": "Windows может показать синее окно <em>«Система Windows защитила ваш компьютер»</em>, потому что установщик пока не подписан. Нажмите <strong>Подробнее</strong> → <strong>Выполнить в любом случае</strong>.",
   "install4": "Готово. Меню работает сразу — без перезагрузки и выхода из системы.",

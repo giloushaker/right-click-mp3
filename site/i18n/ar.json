@@ -17,7 +17,7 @@
   "fmtAac": "AAC / M4A",
   "fmtWavFlac": "WAV · FLAC",
   "installTitle": "التثبيت",
-  "install1": "نزّل ملف <a href=\"https://github.com/giloushaker/right-click-mp3/releases/latest\">Right-Click-MP3-Setup.exe</a> من أحدث إصدار.",
+  "install1": "نزّل ملف <a href=\"https://github.com/giloushaker/right-click-mp3/releases/latest/download/Right-Click-MP3-Setup.exe\">Right-Click-MP3-Setup.exe</a> من أحدث إصدار.",
   "install2": "شغّله. لا حاجة لكلمة مرور المسؤول: يجري التثبيت داخل مجلد المستخدم الخاص بك.",
   "install3": "قد يعرض ويندوز نافذة زرقاء تقول <em>«قام Windows بحماية جهاز الكمبيوتر»</em>، لأن المثبّت غير موقّع رقميًا بعد. اضغط <strong>مزيد من المعلومات</strong> ← <strong>تشغيل على أي حال</strong>.",
   "install4": "تم. القائمة تعمل فورًا، دون إعادة تشغيل ودون تسجيل خروج.",

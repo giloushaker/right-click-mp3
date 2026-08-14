@@ -16,7 +16,7 @@
   "fmtAac": "AAC / M4A",
   "fmtWavFlac": "WAV · FLAC",
   "installTitle": "Kurulum",
-  "install1": "En son sürümden <a href=\"https://github.com/giloushaker/right-click-mp3/releases/latest\">Right-Click-MP3-Setup.exe</a> dosyasını indirin.",
+  "install1": "En son sürümden <a href=\"https://github.com/giloushaker/right-click-mp3/releases/latest/download/Right-Click-MP3-Setup.exe\">Right-Click-MP3-Setup.exe</a> dosyasını indirin.",
   "install2": "Çalıştırın. Yönetici parolası istemez: kendi kullanıcı klasörünüze kurulur.",
   "install3": "Kurulum dosyası henüz imzalı olmadığı için Windows mavi <em>\"Windows bilgisayarınızı korudu\"</em> kutusunu gösterebilir. <strong>Ek bilgi</strong> → <strong>Yine de çalıştır</strong> seçin.",
   "install4": "Bitti. Menü hemen çalışır — yeniden başlatma ya da oturum kapatma gerekmez.",

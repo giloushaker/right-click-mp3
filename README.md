@@ -22,8 +22,8 @@ display language. The window follows your Windows light/dark setting.
 
 ## Install
 
-1. Download `Right-Click-MP3-Setup.exe` from the
-   [latest release](https://github.com/giloushaker/right-click-mp3/releases/latest).
+1. [**Download Right-Click-MP3-Setup.exe**](https://github.com/giloushaker/right-click-mp3/releases/latest/download/Right-Click-MP3-Setup.exe)
+   — direct download, always the newest version.
 2. Run it. It installs for your user only, so Windows never asks for an
    administrator password.
 3. Windows may show a blue "Windows protected your PC" box because the installer

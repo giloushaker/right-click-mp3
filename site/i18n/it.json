@@ -16,7 +16,7 @@
   "fmtAac": "AAC / M4A",
   "fmtWavFlac": "WAV · FLAC",
   "installTitle": "Installazione",
-  "install1": "Scarica <a href=\"https://github.com/giloushaker/right-click-mp3/releases/latest\">Right-Click-MP3-Setup.exe</a> dall'ultima versione pubblicata.",
+  "install1": "Scarica <a href=\"https://github.com/giloushaker/right-click-mp3/releases/latest/download/Right-Click-MP3-Setup.exe\">Right-Click-MP3-Setup.exe</a> dall'ultima versione pubblicata.",
   "install2": "Avvialo. Nessuna password di amministratore: si installa nella tua cartella utente.",
   "install3": "Windows potrebbe mostrare il riquadro blu <em>«Windows ha protetto il PC»</em>, perché il programma di installazione non è ancora firmato. Fai clic su <strong>Ulteriori informazioni</strong> → <strong>Esegui comunque</strong>.",
   "install4": "Fatto. Il menu funziona subito, senza riavvio né disconnessione.",

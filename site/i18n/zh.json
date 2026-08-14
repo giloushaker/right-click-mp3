@@ -16,7 +16,7 @@
   "fmtAac": "AAC / M4A",
   "fmtWavFlac": "WAV · FLAC",
   "installTitle": "安装",
-  "install1": "从最新发布版本下载 <a href=\"https://github.com/giloushaker/right-click-mp3/releases/latest\">Right-Click-MP3-Setup.exe</a>。",
+  "install1": "从最新发布版本下载 <a href=\"https://github.com/giloushaker/right-click-mp3/releases/latest/download/Right-Click-MP3-Setup.exe\">Right-Click-MP3-Setup.exe</a>。",
   "install2": "运行它。不需要管理员密码：程序安装在你自己的用户文件夹中。",
   "install3": "由于安装程序尚未进行代码签名，Windows 可能会显示蓝色的<em>“Windows 已保护你的电脑”</em>提示。点击<strong>更多信息</strong> → <strong>仍要运行</strong>。",
   "install4": "完成。菜单立即可用，无需重启或注销。",

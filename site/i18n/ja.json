@@ -16,7 +16,7 @@
   "fmtAac": "AAC / M4A",
   "fmtWavFlac": "WAV · FLAC",
   "installTitle": "インストール",
-  "install1": "最新リリースから <a href=\"https://github.com/giloushaker/right-click-mp3/releases/latest\">Right-Click-MP3-Setup.exe</a> をダウンロードします。",
+  "install1": "最新リリースから <a href=\"https://github.com/giloushaker/right-click-mp3/releases/latest/download/Right-Click-MP3-Setup.exe\">Right-Click-MP3-Setup.exe</a> をダウンロードします。",
   "install2": "実行します。管理者パスワードは不要です。ご自身のユーザーフォルダーにインストールされます。",
   "install3": "インストーラーはまだコード署名されていないため、Windows が青い <em>「Windows によって PC が保護されました」</em> の画面を出すことがあります。<strong>詳細情報</strong> → <strong>実行</strong> を選んでください。",
   "install4": "完了です。再起動もサインアウトも不要で、メニューはすぐに使えます。",

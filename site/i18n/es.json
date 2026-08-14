@@ -16,7 +16,7 @@
   "fmtAac": "AAC / M4A",
   "fmtWavFlac": "WAV · FLAC",
   "installTitle": "Instalación",
-  "install1": "Descarga <a href=\"https://github.com/giloushaker/right-click-mp3/releases/latest\">Right-Click-MP3-Setup.exe</a> de la última versión publicada.",
+  "install1": "Descarga <a href=\"https://github.com/giloushaker/right-click-mp3/releases/latest/download/Right-Click-MP3-Setup.exe\">Right-Click-MP3-Setup.exe</a> de la última versión publicada.",
   "install2": "Ejecútalo. No pide contraseña de administrador: se instala en tu propia carpeta de usuario.",
   "install3": "Windows puede mostrar el aviso azul <em>«Windows protegió su PC»</em>, porque el instalador aún no está firmado. Pulsa <strong>Más información</strong> → <strong>Ejecutar de todas formas</strong>.",
   "install4": "Listo. El menú funciona al instante, sin reiniciar ni cerrar sesión.",
