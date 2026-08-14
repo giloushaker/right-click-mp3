@@ -3,7 +3,7 @@
 ; The registry work lives in install-user.ps1 so there is one source of truth.
 
 #define AppName "Right Click MP3"
-#define AppVersion "1.1.1"
+#define AppVersion "1.1.2"
 
 [Setup]
 AppName={#AppName}
@@ -11,6 +11,14 @@ AppVersion={#AppVersion}
 AppPublisher=Right Click MP3
 AppSupportURL=https://github.com/giloushaker/right-click-mp3
 DefaultDirName={localappdata}\Programs\RightClickMP3
+; Zero clicks: no language picker, no welcome, ready or finished page. Double
+; click the exe and it installs. install-user.ps1 shows the one small box that
+; says what to do next, which beats a full wizard for a tool this size.
+ShowLanguageDialog=no
+LanguageDetectionMethod=uilanguage
+DisableWelcomePage=yes
+DisableReadyPage=yes
+DisableFinishedPage=yes
 DisableDirPage=yes
 DisableProgramGroupPage=yes
 PrivilegesRequired=lowest
@@ -48,12 +56,13 @@ Source: "LICENSE";            DestDir: "{app}"
 
 [Run]
 Filename: "powershell.exe"; \
-  Parameters: "-NoProfile -ExecutionPolicy Bypass -File ""{app}\install-user.ps1"" -NoCopy"; \
+  Parameters: "-NoProfile -ExecutionPolicy Bypass -File ""{app}\install-user.ps1"" -NoCopy -ShowDone"; \
   StatusMsg: "Adding the Convert To menu..."; Flags: runhidden
 
 [UninstallRun]
 Filename: "powershell.exe"; \
   Parameters: "-NoProfile -ExecutionPolicy Bypass -File ""{app}\uninstall-user.ps1"""; \
   Flags: runhidden; RunOnceId: "RemoveMenu"
+
 
 

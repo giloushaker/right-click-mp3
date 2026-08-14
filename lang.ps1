@@ -24,6 +24,7 @@ $Strings = @{
         partialMsg  = '{0} of {1} converted.'
         failedTitle = 'Failed:'
         notFound    = 'not found'
+        installed   = "Right Click MP3 is ready.`r`n`r`nRight-click any music or video file and choose Convert To.`r`nOn Windows 11 the menu is under Show more options."
     }
     fr = @{
         menuTitle = 'Convertir en'
@@ -46,6 +47,7 @@ $Strings = @{
         partialMsg  = '{0} sur {1} converti(s).'
         failedTitle = 'Échecs :'
         notFound    = 'introuvable'
+        installed   = "Right Click MP3 est prêt.`r`n`r`nFaites un clic droit sur une musique ou une vidéo, puis choisissez « Convertir en ».`r`nSous Windows 11, le menu est dans « Afficher plus d'options »."
     }
     es = @{
         menuTitle = 'Convertir a'
@@ -68,6 +70,7 @@ $Strings = @{
         partialMsg  = '{0} de {1} convertidos.'
         failedTitle = 'Fallidos:'
         notFound    = 'no encontrado'
+        installed   = "Right Click MP3 está listo.`r`n`r`nHaz clic derecho en una canción o un vídeo y elige «Convertir a».`r`nEn Windows 11 el menú está dentro de «Mostrar más opciones»."
     }
     de = @{
         menuTitle = 'Konvertieren in'
@@ -90,6 +93,7 @@ $Strings = @{
         partialMsg  = '{0} von {1} konvertiert.'
         failedTitle = 'Fehlgeschlagen:'
         notFound    = 'nicht gefunden'
+        installed   = "Right Click MP3 ist bereit.`r`n`r`nKlicken Sie mit der rechten Maustaste auf eine Musik- oder Videodatei und wählen Sie: Konvertieren in.`r`nUnter Windows 11 steht das Menü unter: Weitere Optionen anzeigen."
     }
     it = @{
         menuTitle = 'Converti in'
@@ -112,6 +116,7 @@ $Strings = @{
         partialMsg  = '{0} di {1} convertiti.'
         failedTitle = 'Non riusciti:'
         notFound    = 'non trovato'
+        installed   = "Right Click MP3 è pronto.`r`n`r`nFai clic destro su un brano o un video e scegli «Converti in».`r`nSu Windows 11 il menu si trova in «Mostra altre opzioni»."
     }
     pt = @{
         menuTitle = 'Converter para'
@@ -134,6 +139,7 @@ $Strings = @{
         partialMsg  = '{0} de {1} convertidos.'
         failedTitle = 'Falharam:'
         notFound    = 'não encontrado'
+        installed   = "O Right Click MP3 está pronto.`r`n`r`nClique com o botão direito numa música ou num vídeo e escolha «Converter para».`r`nNo Windows 11 o menu está em «Mostrar mais opções»."
     }
     nl = @{
         menuTitle = 'Converteren naar'
@@ -156,6 +162,7 @@ $Strings = @{
         partialMsg  = '{0} van {1} geconverteerd.'
         failedTitle = 'Mislukt:'
         notFound    = 'niet gevonden'
+        installed   = "Right Click MP3 is klaar voor gebruik.`r`n`r`nKlik met rechts op een muziekbestand of video en kies Converteren naar.`r`nIn Windows 11 staat het menu onder Meer opties weergeven."
     }
     pl = @{
         menuTitle = 'Konwertuj na'
@@ -178,6 +185,7 @@ $Strings = @{
         partialMsg  = 'Przekonwertowano {0} z {1}.'
         failedTitle = 'Nie powiodły się:'
         notFound    = 'nie znaleziono'
+        installed   = "Right Click MP3 jest gotowy.`r`n`r`nKliknij prawym przyciskiem utwór lub film i wybierz: Konwertuj na.`r`nW Windows 11 menu znajdziesz w: Pokaż więcej opcji."
     }
     ru = @{
         menuTitle = 'Преобразовать в'
@@ -200,6 +208,7 @@ $Strings = @{
         partialMsg  = 'Преобразовано {0} из {1}.'
         failedTitle = 'Не удалось:'
         notFound    = 'файл не найден'
+        installed   = "Right Click MP3 готов к работе.`r`n`r`nНажмите правой кнопкой по песне или видео и выберите «Преобразовать в».`r`nВ Windows 11 пункт находится в разделе «Показать дополнительные параметры»."
     }
     tr = @{
         menuTitle = 'Şuna dönüştür'
@@ -222,6 +231,7 @@ $Strings = @{
         partialMsg  = '{1} dosyadan {0} tanesi dönüştürüldü.'
         failedTitle = 'Başarısız:'
         notFound    = 'bulunamadı'
+        installed   = "Right Click MP3 hazır.`r`n`r`nBir şarkıya veya videoya sağ tıklayıp Şuna dönüştür seçeneğini seçin.`r`nWindows 11'de menü Diğer seçenekleri göster altındadır."
     }
     ja = @{
         menuTitle = '変換'
@@ -244,6 +254,7 @@ $Strings = @{
         partialMsg  = '{1} 件中 {0} 件を変換しました。'
         failedTitle = '失敗:'
         notFound    = 'ファイルが見つかりません'
+        installed   = "Right Click MP3 の準備ができました。`r`n`r`n音楽ファイルや動画を右クリックして「変換」を選んでください。`r`nWindows 11 では「その他のオプションを確認」の中にあります。"
     }
     zh = @{
         menuTitle = '转换为'
@@ -266,6 +277,7 @@ $Strings = @{
         partialMsg  = '已转换 {0} 个，共 {1} 个。'
         failedTitle = '失败：'
         notFound    = '找不到文件'
+        installed   = "Right Click MP3 已就绪。`r`n`r`n右键点击任意音乐或视频文件，选择「转换为」。`r`n在 Windows 11 中，该菜单位于「显示更多选项」里。"
     }
     ar = @{
         menuTitle = 'تحويل إلى'
@@ -288,6 +300,7 @@ $Strings = @{
         partialMsg  = 'جرى تحويل {0} من {1}.'
         failedTitle = 'فشل:'
         notFound    = 'الملف غير موجود'
+        installed   = "‏Right Click MP3 جاهز للاستخدام.`r`n`r`nانقر بالزر الأيمن على أي ملف موسيقي أو فيديو واختر «تحويل إلى».`r`nفي ويندوز 11 تجد القائمة ضمن «إظهار المزيد من الخيارات»."
     }
 }
 

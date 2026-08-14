@@ -1,5 +1,6 @@
 Param(
-    [switch]$NoCopy   # register only, run the app from where it already is
+    [switch]$NoCopy,    # register only, run the app from where it already is
+    [switch]$ShowDone   # the setup exe has no finish page, so say it worked
 )
 
 $ErrorActionPreference = 'Stop'
@@ -63,3 +64,8 @@ $sc.Save()
 
 Write-Output 'Done. Right-click any audio or video file -> Convert To.'
 Write-Output 'On Windows 11 the menu is under "Show more options" (or press Shift+F10).'
+
+if ($ShowDone) {
+    Add-Type -AssemblyName System.Windows.Forms
+    [void][System.Windows.Forms.MessageBox]::Show((Get-Text 'installed'), 'Right Click MP3', 'OK', 'Information')
+}
